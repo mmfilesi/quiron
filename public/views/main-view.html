@@ -1,0 +1,27 @@
+<common-header title="{{title}}" subtitle="{{subtitle}}" navbar="navBar" selected="{{selected}}" alerts="alerts"></common-header>
+
+<section class="container-fluid" ng-controller="MainController">
+
+	<div class="row">
+
+	    <div class="col-md-9">
+	    
+	    	<common-carousel  imgs="dataImgs"></common-carousel>
+
+	    	<h3 class="header3">Álbumes</h3>
+	    	<common-layoutAlbums></common-layoutAlbums>
+	    	
+	    	<h3 class="header3">Últimas imágenes</h3>
+	    	<common-layoutImgs></common-layoutImgs>
+	    
+	     </div>	
+
+	    <div class="col-md-3 panel panel-default">
+	    	<common-mainSidebar></common-mainSidebar>
+	    </div>
+
+	</div>
+
+</section>
+
+<common-templates-footer></common-templates-footer>

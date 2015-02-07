@@ -1,0 +1,8 @@
+{
+	"HOME": "Portada",
+	"ERROR_CONEXION": {
+		"GENERIC_400": "Error 400, petición a una url inexistente",
+		"GENERIC_500": "Error 500, el servidor no responde" 
+	}
+
+}

@@ -1,0 +1,11 @@
+<div class="main-carousel">
+	<div class="pauseButton" ng-click="stopCarousel()">
+		<span class="glyphicon glyphicon-pause" ng-show="carouselOn"></span>
+		<span class="glyphicon glyphicon-play" ng-show="!carouselOn"></span>
+	</div>
+	<div class="mainCarouselContainer">
+		<article ng-repeat="item in imgs" class="main-slide" ng-show="count == $index">
+			<img src="{{item.url}}" title="{{item.title}}" class="img-responsive">
+		</article>
+	</div>
+</div>
