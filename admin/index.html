@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/admin.css">
+        <script src="../bower_components/modernizr/modernizr.js"></script>
+    </head>
+
+    <body ng-app="adminApp" class="" itemscope itemtype="http://schema.org/WebPage" role="application">
+        <section class="container-fluid box wrap"  ng-controller="MainController">
+            <common-header title="{{title}}" subtitle="{{subtitle}}" navbar="navBar" selected="{{selected}}" alerts="alerts"></common-header>
+
+            <div class="row">
+                <nav class="col-sm-2 main-nav">
+                    <ul class="" role="nav">
+                        <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Images</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Albums</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Tags</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Config</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a></li>
+                    </ul>
+                </nav>
+
+                <div class="col-sm-10">
+                    <div ng-view></div>
+                </div>
+
+            <common-templates-footer></common-templates-footer>
+        </section>
+     
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular/angular-route.min.js"></script>
+    <script src="../bower_components/angular/angular-animate.min.js"></script>
+    <script src="../bower_components/angular-translate/angular-translate.min.js"></script>
+    <script src="../bower_components/angular-translate/angular-translate-loader-static-files.min.js"></script>  
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>    
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <script src="js/app.js"></script>
+    
+    <script src="js/services/rest-services.js"></script>
+    <script src="js/services/header-messages.js"></script>
+    <script src="js/controllers/main-controller.js"></script>
+    <script src="js/controllers/home-controller.js"></script>
+    <script src="js/controllers/config-controller.js"></script>
+
+    </body>
+</html>

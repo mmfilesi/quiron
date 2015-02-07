@@ -1,4 +1,8 @@
-<?php 
+<?php
+
+/* CACHEOS E-TAG
+http://docs.slimframework.com/#HTTP-Caching-Overview
+*/
 
 if ( !defined("MAIN_ACCESS") ) {
 	header('HTTP/1.1 403 Forbiden');
@@ -7,6 +11,12 @@ if ( !defined("MAIN_ACCESS") ) {
 }
 
 $app->get("/pruebas/", function() use($app) {
+	/*$res = new \Slim\Http\Response();
+	$res->setStatus(403);
+	$res->write('You shall not pass!');
+	$res->headers->set('Content-Type', 'text/plain');
+	$array = $res->finalize();
+	die();*/
 });
 
 $app->get("/config/", function() use($app) {
