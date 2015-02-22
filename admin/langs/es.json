@@ -1,8 +1,30 @@
 {
-	"HOME": "Portada",
 	"ERROR_CONEXION": {
 		"GENERIC_400": "Error 400, petición a una url inexistente",
 		"GENERIC_500": "Error 500, el servidor no responde" 
-	}
+	},
+    "FORMS": {
+        "SEND_DATA":    "Enviando datos",
+        "ACCEPT":       "Aceptar"
+    },
+    "LABELS": {
+        "TITLE":    "Título",
+        "SUBTITLE": "Subtítulo",
+        "LANG":     "Idioma"
+    },
+    "LANGS": {
+        "ENGLISH":  "Inglés",
+        "ITALIAN":  "Italiano",
+        "SPANISH":  "Español"
+    },
+	"HOME":        "Portada",
+    "IMAGES":       "Imágenes",
+    "ALBUMS":       "Álbumes",
+    "TAGS":         "Tags",
+    "PAGES":        "Páginas",
+    "SIDEBAR":      "Sidebar",
+    "CONFIG": 	    "Conf.",
+    "CONFIG_LONG":  "Configuración",
+   	"USERS": 	    "Usuarios"
 
 }

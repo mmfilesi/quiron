@@ -10,38 +10,74 @@ if ( !defined("MAIN_ACCESS") ) {
 	die();
 }
 
-$app->get("/pruebas/", function() use($app) {
-	/*$res = new \Slim\Http\Response();
-	$res->setStatus(403);
-	$res->write('You shall not pass!');
-	$res->headers->set('Content-Type', 'text/plain');
-	$array = $res->finalize();
-	die();*/
-});
-
 $app->get("/config/", function() use($app) {
+
 	try {
+		/* Recogemos cabeceras... todo */
+		//$contentType = $app->response->headers->get('Content-Type');
+
 		$connection = getConnection();
-		$dbh 		= $connection->prepare("SELECT `key`, `value` FROM config");
+		$db 		= $connection->prepare("SELECT * FROM config_basic_data");
 		
-		$dbh->execute();
-		$result = $dbh->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
+		$db->execute();
+		$result = $db->fetch(PDO::FETCH_OBJ);
 
-		$response = array();
-		if ( $result ) {		
-			foreach ($result as $key=>$value) {
-				$response[$key] = utf8_encode($value[0]);
-			}
-
-		}
+		$response = [
+			"title" 	=> $result->title,
+			"subtitle" 	=> $result->subtitle,
+			"lang" 		=> $result->lang
+			];
 
 		$app->response->headers->set("Content-type", "application/json");
 		$app->response->status(200);
 		$app->response->body(json_encode($response));
 
 	} catch(PDOException $e) {
-
-		/* Todo, response rest */
-		echo "Error: " . $e->getMessage();
+		$error['error'] = $e->getMessage();
+		$app->halt( 500, json_encode($error['error']) );
 	}
+
+});
+
+$app->put("/config/", function() use($app) {
+
+	try {
+		$request = $app->request();
+
+		if ( $request->getMediaType() == 'application/json') {			
+			$post 	= $request->getBody();
+			$post 	= json_decode($post, true);
+			$post 	= (array) $post;
+
+			$conn	= getConnection();
+
+			/* DEJAR PREPARADO PARA MÚLTIPLES, ENVIANDO Y RECOGIENDO EL ID ? */
+			
+			$sql	= "UPDATE config set `value` = :value WHERE `key` = :key";
+			$prep 	= $conn->prepare($sql);
+
+			foreach ( $post as $key=>$value ) {				
+				//$prep->execute(array(':key'=>$key, ':value'=>$value));
+			}
+			
+			$response['ok'] = "provisional"; /* TODO */
+			$app->response->headers->set("Content-type", "application/json");
+			$app->response->status(200);
+			$app->response->body(json_encode($response));
+
+		}		
+
+	} catch(PDOException $e) {
+		$error['error'] = $e->getMessage();
+		$app->halt( 500, json_encode($error['error']) );
+	}
+});
+
+$app->put("/errors/", function() use($app) {
+	/* Cacheamos el body */
+	$request = $app->request();
+	$post = $request->getBody();
+	$post = json_decode($post, true);
+	$post = (array) $post;
+	var_dump($post);	
 });

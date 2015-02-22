@@ -115,8 +115,18 @@ body {
     padding: 2em;
 }
 
-.mainArea {
+.main-area {
     margin-left: 30px;
+}
+
+.main-area-title {
+    margin-top: 0;
+    border: 1px solid #ededed;
+    padding: 0.5em;
+    font-size: 1em;
+    font-weight: bold;
+    background: #00688E;
+    color: #fff;
 }
 
 .nav, .pagination, .carousel, .panel-title a { 
@@ -131,6 +141,43 @@ body {
     margin-top: 1em;
 }
 
+.form-row {
+    margin-top: 1em;
+}
+
+.form-actions {
+    text-align: right;
+    text-align: right;
+    width: 100%;
+
+    padding-top: 0.5em;
+    margin-top: 2em;
+}
+
+.form-actions:before {
+    border-top: 1px dotted #ededed;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.form-actions button {
+    min-width: 100px;
+}
+
+.form-actions .msg {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    border: 1px solid #B4C1E4;
+    color: #488EBA;
+    font-weight: 600;
+}
+
+.form-actions .progress-striped {
+    margin-left: 0.5em;
+}
+
+
 /* ==========================================================================
    panels
    ========================================================================== */
@@ -143,6 +190,13 @@ body {
 
 .bs-callout-danger {
     border-left: 5px solid #900;
+}
+
+.sub-panel {
+  border-left: 1px solid #ededed;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: -1em;
 }
 
 /* ==========================================================================
@@ -167,7 +221,7 @@ body {
     font-size: 1em;
     text-align: left;
     line-height: 1em;
-    padding: 0.8em;
+    padding: 0.8em 0.5em;
     border-top: 1px solid #f9f9f9;
     border-left: 1px solid #f9f9f9;
     border-right: 1px solid #ededed;
@@ -181,6 +235,65 @@ body {
 
 .main-nav a:hover {
     text-decoration: none;
+}
+
+/* ==========================================================================
+   animate
+   ========================================================================== */
+
+.animate-standar-1sec {
+        -webkit-transition: all 1s linear; /* Chrome y Safari */
+        -o-transition: all 1s linear; /* Opera */
+        -moz-transition: all 1s linear; /* Mozilla Firefox */
+        -ms-transition: all 1s linear; /* Internet Explorer */
+    transition: all 3s linear;
+}
+
+.fade-opacity-out {
+    opacity: 0;
+}
+
+.fade-opacity-in {
+    opacity: 1;
+}
+
+.slide-animate-container {
+  position:relative;
+  background:white;
+  border:1px solid black;
+  height:40px;
+  overflow:hidden;
+}
+
+.slide-animate {
+  padding:10px;
+}
+
+.slide-animate.ng-enter, .slide-animate.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:block;
+  padding:10px;
+}
+
+.slide-animate.ng-enter {
+  top:-50px;
+}
+.slide-animate.ng-enter.ng-enter-active {
+  top:0;
+}
+
+.slide-animate.ng-leave {
+  top:0;
+}
+.slide-animate.ng-leave.ng-leave-active {
+  top:50px;
 }
 
 

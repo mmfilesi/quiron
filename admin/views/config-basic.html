@@ -1,0 +1,45 @@
+			<div class="sub-panel" ng-controller="ConfigControllerBasic">
+				<form role="form" class="basicForm" name="basicData" id="basicData">
+					<div class="row form-row">
+						<div class="col-sm-6">
+							<label for="title">{{ 'LABELS.TITLE' | translate }}</label>
+							<div class="input-group">
+						 		<input type="text" class="form-control" id="title" name="title" ng-model="basicTitle" tabindex=1>
+						 		<span class="input-group-btn">
+						 			<button class="btn btn-default" type="button" ng-click="basicTitle = ''">
+						 			 	<span class="glyphicon glyphicon-erase" aria-hidden="true"></span>
+						 			</button>						 			
+						 		</span>
+						 	</div>
+						</div>
+						<div class="col-sm-6">
+							<label for="subtitle">{{ 'LABELS.SUBTITLE' | translate }}</label>
+							<div class="input-group">
+						 		<input type="text" class="form-control" id="subtitle" name="subtitle" ng-model="basicSubtitle"  tabindex=2>
+								<span class="input-group-btn">
+						 			<button class="btn btn-default" type="button" ng-click="basicSubtitle = ''">
+						 			 	<span class="glyphicon glyphicon-erase" aria-hidden="true"></span>
+						 			</button>						 			
+						 		</span>
+							</div>
+						</div>
+					</div>
+					<div class="row form-row">
+						<div class="col-sm-6">
+							<label for="lang">{{ 'LABELS.LANG' | translate }}</label>
+							<select class="form-control" id="lang" name="lang" ng-model="basicLang" tabindex=3>
+								<option ng-repeat="item in langs" value={{item.key}} ng-selected="langSelected">{{ item.value | translate }}</option>
+							</select>
+						</div>
+						<div class="col-sm-6">
+							
+						</div>
+					</div>
+
+					<div class="row form-row form-actions">
+						 <progressbar class="progress-striped active animate-standar-1sec fade-opacity-out" ng-class="{'fade-opacity-in':loadingConfigClass}" value="loadingConfigValue" type="info">{{ 'FORMS.SEND_DATA' | translate }}</progressbar>
+						<button type="button" class="btn btn-success" ng-click="submitBasicConfig()" ng-disabled="loadingConfigClass">{{ 'FORMS.ACCEPT' | translate }}</button>
+					</div>
+
+				</form>
+			</div>

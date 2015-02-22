@@ -12,19 +12,19 @@
         <script src="../bower_components/modernizr/modernizr.js"></script>
     </head>
 
-    <body ng-app="adminApp" class="" itemscope itemtype="http://schema.org/WebPage" role="application">
-        <section class="container-fluid box wrap"  ng-controller="MainController">
-            <common-header title="{{title}}" subtitle="{{subtitle}}" navbar="navBar" selected="{{selected}}" alerts="alerts"></common-header>
+    <body ng-app="adminApp" itemscope itemtype="http://schema.org/WebPage" role="application">
+        <section class="container-fluid box wrap" ng-controller="MainController">
+            <common-header title="{{title}}" subtitle="{{subtitle}}" navbar="navBar" alerts="alerts"></common-header>
 
             <div class="row">
                 <nav class="col-sm-2 main-nav">
                     <ul class="" role="nav">
-                        <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Images</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Albums</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Tags</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Config</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a></li>
+                        <li ng-repeat="item in mainBar" ng-class="{ 'active': selected==$index }" ng-click='setSelected($index)'>
+                            <a href="{{item.link}}">
+                                <span class="glyphicon {{item.icon}}" aria-hidden="true"></span> 
+                                {{item.value | translate }}
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 
@@ -33,13 +33,15 @@
                 </div>
 
             <common-templates-footer></common-templates-footer>
+            <errors-caught></errors-caught>
         </section>
      
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/angular/angular-route.min.js"></script>
     <script src="../bower_components/angular/angular-animate.min.js"></script>
     <script src="../bower_components/angular-translate/angular-translate.min.js"></script>
-    <script src="../bower_components/angular-translate/angular-translate-loader-static-files.min.js"></script>  
+    <script src="../bower_components/angular-translate/angular-translate-loader-static-files.min.js"></script>
+    <script src="../bower_components/stacktrace-js/dist/stacktrace.min.js"></script>
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>    
     <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 

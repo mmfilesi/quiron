@@ -33,19 +33,22 @@ angular.module('adminApp')
 angular.module('adminApp')
     .factory('configData', function($http) {
 
-        var config = null,
-            urlBase = "../rest/";
+        var urlBase = "../rest/";
 
-        if ( config ) {
-            return config;
+        return {
 
-        }   else {
-                return {
-                    getConfigData:function() {
-                   // $log.log($http.defaults.headers);                  
-                    return $http.get(urlBase+'config');
+            getConfigBasic:function() {                                     
+                return $http.get(urlBase+'config');
+            },
+
+            setConfigBasic: function(payload) {
+                if ( payload ) {
+                    return $http.put(urlBase+'config', payload);
+                } else {
+                    return false;
                 }
             }
-        }
 
+        }
+ 
     });

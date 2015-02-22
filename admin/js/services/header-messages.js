@@ -1,5 +1,7 @@
 'use strict';
 
+/* DEPRECATED */
+
 angular.module("adminApp")
 	.factory("headerMessages", function($filter, $translate, $log) {
 		return {
@@ -12,17 +14,11 @@ angular.module("adminApp")
 				var targetJSON,
 					alertMsg = [];
 
-				targetJSON = "ERROR_CONEXION.";
+				//targetJSON = "ERROR_CONEXION.";
 
-				if ( (new RegExp("^4")).test(msg) ) {
-					msg = $filter('translate')(targetJSON+'GENERIC_400');
-				
-				} else if ( (new RegExp("^5")).test(msg) ) {
-					msg = "ERROR 500";
-				
-				} else {
-					msg = "ERROR genérico";
-				}
+				/* if ( (new RegExp("^4")).test(msg) ) {
+					msg = $filter('translate')(targetJSON+'GENERIC_400');				
+				} */
 
 				alertMsg = [{ 'type': 'strong-danger', 'msg': msg }];
 				

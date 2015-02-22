@@ -22,14 +22,27 @@ var adminModule = angular.module('adminApp', ['ngRoute', 'ui.bootstrap', 'pascal
 
     }]).config(['$translateProvider', function ($translateProvider) {
         /* Valor por defecto */
-        $translateProvider.preferredLanguage('es');
-        
-       $translateProvider.useStaticFilesLoader({
+        $translateProvider.preferredLanguage('es');        
+        $translateProvider.useStaticFilesLoader({
             prefix: 'langs/',
             suffix: '.json'
         });
 
     }]);
+
+  /*  angular.module('adminApp')
+        .config(function($provide) {
+            $provide.decorator("$exceptionHandler", function($delegate) {
+
+                console.log($delegate.exception)
+                return function(exception, cause) {
+
+                    $delegate(exception, cause);
+                }
+
+            });
+
+        });*/
 
 // TODO. Sacar de aquí
 
@@ -76,3 +89,5 @@ angular.module('adminApp')
             }
         }
     });
+
+// http://www.tutorialspoint.com/http/http_header_fields.htm
